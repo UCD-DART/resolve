@@ -1,9 +1,11 @@
-const injectString = ({ escape }, value) => `${escape(value)}`
-const injectNumber = (pool, value) => `${+value}`
+import { AdapterPool, EventFilter } from './types'
+
+const injectString = (pool: AdapterPool, value: string) => `${pool.escape(value)}`
+const injectNumber = (pool: AdapterPool, value: number) => `${+value}`
 
 const createQuery = (
-  pool,
-  { eventTypes, aggregateIds, startTime, finishTime }
+  pool: AdapterPool,
+  { eventTypes, aggregateIds, startTime, finishTime } : EventFilter
 ) => {
   const { escapeId } = pool
 

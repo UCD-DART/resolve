@@ -1,4 +1,4 @@
-const shapeEvent = (event, additionalFields) =>
+const shapeEvent = (event: any, additionalFields: any): any =>
   Object.freeze({
     threadCounter: +event.threadCounter,
     threadId: +event.threadId,

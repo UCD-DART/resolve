@@ -4,49 +4,48 @@ import tmp from 'tmp'
 import os from 'os'
 import fs from 'fs'
 
-import loadEventsByCursor from './js/load-events-by-cursor'
-import loadEventsByTimestamp from './js/load-events-by-timestamp'
-import getLatestEvent from './js/get-latest-event'
-import saveEvent from './js/save-event'
-import injectEvent from './js/inject-event'
-import freeze from './js/freeze'
-import unfreeze from './js/unfreeze'
-import shapeEvent from './js/shape-event'
-import loadSnapshot from './js/load-snapshot'
-import dropSnapshot from './js/drop-snapshot'
-import saveSnapshot from './js/save-snapshot'
-import beginIncrementalImport from './js/begin-incremental-import'
-import commitIncrementalImport from './js/commit-incremental-import'
-import rollbackIncrementalImport from './js/rollback-incremental-import'
-import pushIncrementalImport from './js/push-incremental-import'
-
+import beginIncrementalImport from './begin-incremental-import'
+import commitIncrementalImport from './commit-incremental-import'
 import connect from './connect'
-import init from './init'
-import drop from './drop'
 import dispose from './dispose'
+import dropSnapshot from './drop-snapshot'
+import drop from './drop'
+import freeze from './freeze'
+import getLatestEvent from './get-latest-event'
 import getSecretsManager from './secrets-manager'
+import init from './init'
+import injectEvent from './inject-event'
+import loadEventsByCursor from './load-events-by-cursor'
+import loadEventsByTimestamp from './load-events-by-timestamp'
+import loadSnapshot from './load-snapshot'
+import pushIncrementalImport from './push-incremental-import'
+import rollbackIncrementalImport from './rollback-incremental-import'
+import saveEvent from './save-event'
+import saveSnapshot from './save-snapshot'
+import shapeEvent from './shape-event'
+import unfreeze from './unfreeze'
 
 const wrappedCreateAdapter = createAdapter.bind(null, {
-  connect,
-  loadEventsByCursor,
-  loadEventsByTimestamp,
-  getLatestEvent,
-  saveEvent,
-  init,
-  drop,
-  dispose,
-  injectEvent,
-  freeze,
-  unfreeze,
-  shapeEvent,
-  getSecretsManager,
-  saveSnapshot,
-  dropSnapshot,
-  loadSnapshot,
   beginIncrementalImport,
   commitIncrementalImport,
-  rollbackIncrementalImport,
+  connect,
+  dispose,
+  dropSnapshot,
+  drop,
+  freeze,
+  getLatestEvent,
+  getSecretsManager,
+  init,
+  injectEvent,
+  loadEventsByCursor,
+  loadEventsByTimestamp,
+  loadSnapshot,
   pushIncrementalImport,
+  rollbackIncrementalImport,
+  saveEvent,
+  saveSnapshot,
+  shapeEvent,
+  unfreeze,
   sqlite,
   tmp,
   os,

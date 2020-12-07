@@ -1,5 +1,5 @@
-import getLog from './js/get-log'
 import { SecretsManager } from 'resolve-core'
+import getLog from './get-log'
 import { AdapterPool } from './types'
 
 const getSecret = async (

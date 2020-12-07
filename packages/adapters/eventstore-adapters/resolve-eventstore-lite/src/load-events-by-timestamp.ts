@@ -1,5 +1,5 @@
 import { throwBadCursor } from 'resolve-eventstore-base'
-import createQuery from './create-query'
+import createQuery from '../create-query'
 
 const loadEventsByTimestamp = async (pool, filter) => {
   const { database, escapeId, eventsTableName, shapeEvent } = pool

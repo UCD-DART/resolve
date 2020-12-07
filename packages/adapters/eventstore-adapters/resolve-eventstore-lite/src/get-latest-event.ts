@@ -1,6 +1,10 @@
 import createQuery from './create-query'
+import { AdapterPool, EventFilter } from './types'
 
-const getLatestEvent = async (pool, filter) => {
+const getLatestEvent = async (
+  pool: AdapterPool,
+  filter: EventFilter
+) => {
   const { database, eventsTableName, escapeId, shapeEvent } = pool
 
   const resultQueryCondition = createQuery(pool, filter)

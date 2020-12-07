@@ -1,3 +1,18 @@
+import type { open } from 'sqlite'
+export type SqliteOpen = typeof open
+
+export type MemoryStore = {
+  name: string
+  drop: () => void
+}
+
+export type EventFilter = {
+  eventTypes: Array<string> | null,
+  aggregateIds: Array<string> | null,
+  startTime: number,
+  finishTime: number
+}
+
 export type AdapterPool = {
   config: {
     databaseFile: string
@@ -13,11 +28,12 @@ export type AdapterPool = {
   secretsTableName: string
   escapeId: (source: string) => string
   escape: (source: string) => string
-  memoryStore: any
+  memoryStore: MemoryStore
+  shapeEvent: (event: any) => any
 }
 
 export type AdapterSpecific = {
-  sqlite: any
+  sqlite: { open: SqliteOpen }
   tmp: any
   os: any
   fs: any

@@ -1,6 +1,13 @@
 import getLog from './js/get-log'
-import disposeEventStore from './js/dispose'
 import { AdapterPool } from './types'
+
+const disposeEventStore = async ({ events: { connection } }) => {
+  const log = getLog(`disposeEventStore`)
+
+  log.debug(`closing mysql connection`)
+  await connection.end()
+  log.debug(`mysql connection closed`)
+}
 
 const disposeSecretsStore = async (pool: AdapterPool): Promise<any> => {
   const log = getLog(`disposeSecretsStore`)
